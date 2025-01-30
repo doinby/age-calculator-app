@@ -8,7 +8,9 @@ export default function App() {
 
   return (
     <main className='flex flex-col items-center gap-12'>
-      <section className='flex gap-6'>
+      <section className='flex flex-col'>
+      <p className='text-gray-500'>Enter your birthday:</p>
+      <div className='flex gap-6'>
         <div className='flex flex-col'>
           <p className='text-gray-500 uppercase font-bold text-sm'>Day</p>
           <input onChange={(e) => setDayInput(e.target.value)} className='w-full min-w-0 border-[0.25px] border-gray-500' />
@@ -21,6 +23,7 @@ export default function App() {
           <p className='text-gray-500 uppercase font-bold text-sm'>Year</p>
           <input onChange={(e) => setYearInput(e.target.value)} className='w-full min-w-0 border-[0.25px] border-gray-500' />
         </div>
+      </div>
       </section>
       <button className='border-[0.25px] border-gray-500'>👇</button>
       <section className='w-full px-12 flex flex-col items-start text-4xl font-bold'>
