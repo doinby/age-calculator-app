@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import React, { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import arrowIcon from '../assets/images/icon-arrow.svg';
 
 export default function DateOutput({ dayInput, monthInput, yearInput }) {
   const url =
-    "https://timeapi.io/api/time/current/zone?timeZone=Europe%2FAmsterdam";
+    'https://timeapi.io/api/time/current/zone?timeZone=Europe%2FAmsterdam';
 
   let dayOutput = 0;
   let monthOutput = 0;
   let yearOutput = 0;
 
   const { isPending, error, data } = useQuery({
-    queryKey: ["repoData"],
-    queryFn: () => fetch(url, { method: "GET" }).then((res) => res.json()),
+    queryKey: ['repoData'],
+    queryFn: () => fetch(url, { method: 'GET' }).then((res) => res.json()),
   });
-  console.log(data);
 
-  if (isPending) return "Loading...";
+  if (isPending) return 'Loading...';
 
-  if (error) return "An error has occurred: " + error.message;
+  if (error) return 'An error has occurred: ' + error.message;
 
   if (data.year && yearInput) {
     yearOutput = data.year - yearInput;
@@ -37,16 +37,18 @@ export default function DateOutput({ dayInput, monthInput, yearInput }) {
 
   return (
     <>
-      <button className="border-[0.25px] border-gray-500">👇</button>
-      <section className="w-full px-12 flex flex-col items-start text-4xl font-bold">
-        <p className="italic">
-          <span>{yearOutput}</span> years
+      <button className='p-4 rounded-full bg-indigo-500'>
+        <img src={arrowIcon} alt='Submit' className='w-6'/>
+      </button>
+      <section className='w-full px-12 flex flex-col items-start text-4xl font-bold'>
+        <p className='italic'>
+          <span className='text-indigo-500'>{yearOutput}</span> years
         </p>
-        <p className="italic">
-          <span>{monthOutput}</span> months
+        <p className='italic'>
+          <span className='text-indigo-500'>{monthOutput}</span> months
         </p>
-        <p className="italic">
-          <span>{dayOutput}</span> days
+        <p className='italic'>
+          <span className='text-indigo-500'>{dayOutput}</span> days
         </p>
       </section>
     </>

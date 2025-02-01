@@ -1,6 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
 import DateInput from "./Component/DateInput";
 import DateOutput from "./Component/DateOutput";
 
@@ -13,10 +17,18 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-    <main className='flex flex-col items-center gap-12'>
-      <DateInput setDayInput={setDayInput} setMonthInput={setMonthInput} setYearInput={setYearInput} />
-      <DateOutput dayInput={dayInput} monthInput={monthInput} yearInput={yearInput} />
-    </main>
+      <main className="mx-4 my-6 flex flex-col items-center gap-12">
+        <DateInput
+          setDayInput={setDayInput}
+          setMonthInput={setMonthInput}
+          setYearInput={setYearInput}
+        />
+        <DateOutput
+          dayInput={dayInput}
+          monthInput={monthInput}
+          yearInput={yearInput}
+        />
+      </main>
     </QueryClientProvider>
-  )
+  );
 }
