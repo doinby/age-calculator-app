@@ -3,7 +3,6 @@ import { useState } from "react";
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
 } from "@tanstack/react-query";
 import DateInput from "./Component/DateInput";
 import DateOutput from "./Component/DateOutput";
@@ -17,7 +16,7 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <main className="mx-4 my-6 flex flex-col items-center gap-12">
+      <main className="w-[95%] lg:w-[50%] my-12 lg:my-0 px-6 py-12 flex flex-col items-center gap-12 bg-white rounded-xl rounded-br-[96px]">
         <DateInput
           setDayInput={setDayInput}
           setMonthInput={setMonthInput}
